@@ -14,15 +14,14 @@ class MainActivity : AppCompatActivity() {
         var btnDialog=findViewById<Button>(R.id.btnDialog)
 
         btnDialog.setOnClickListener{
+            var snackArray= arrayOf("오레오","파이","바나나킥")
             var dialog=AlertDialog.Builder(this@MainActivity)
-            dialog.setTitle("안내메시지")
-            dialog.setMessage("오늘은 목요일입니다.")
+            dialog.setTitle("맜있는과자")
             dialog.setIcon(R.drawable.ikon)
-            dialog.setPositiveButton("확인"){dialog,which->
-                Toast.makeText(this@MainActivity,
-                    "확인을 눌렀네요",Toast.LENGTH_SHORT).show()
-
+            dialog.setItems(snackArray){d1,which->
+                btnDialog.text=snackArray[which]
             }
+            dialog.setPositiveButton("닫기",null)
             dialog.show()
         }
     }
