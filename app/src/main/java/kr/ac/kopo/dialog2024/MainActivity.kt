@@ -19,9 +19,10 @@ class MainActivity : AppCompatActivity() {
             var dialog=AlertDialog.Builder(this@MainActivity)
             dialog.setTitle("맜있는과자")
             dialog.setIcon(R.drawable.ikon)
-            dialog.setSingleChoiceItems(snackArray,1){d1,which,->
-                btnDialog.text=snackArray[which]
+            dialog.setMultiChoiceItems(snackArray,selectArr){
+                d1,which,isChecked->btnDialog.text=snackArray[which]
             }
+
             dialog.setPositiveButton("닫기",null)
             dialog.show()
         }
